@@ -21,8 +21,6 @@ export class MyApp {
   constructor(public platform: Platform, public menu: MenuController) {
     this.initializeApp();
 
-    platform.ready().then(() => this.initPush());
-
     // set our app's pages
     this.pages = [
       { title: 'Hello Ionic', component: HelloIonicPage },
@@ -31,36 +29,41 @@ export class MyApp {
   }
 
   initPush():void {
-    let serverKey = 'AAAAtpBK9bI:APA91bF5zON2B70nTH8NgVo10B_MBR_JAaA8L6r4MaTuty3o-vjsgXmY3-JuWlSKAJoERTs6bvsgfK3CMRLAUzf3ItnD5O0Gw3GMVHvPT5ThIxaXTg51r_G4FzKcGoX_9iBZF7GkLcE0';
-    let senderId = '784104879538';
 
-    OneSignal.startInit(serverKey, senderId);
-    OneSignal.setSubscription(true);
-    OneSignal.inFocusDisplaying(OneSignal.OSInFocusDisplayOption.InAppAlert);
-
-    OneSignal.handleNotificationReceived().subscribe(() => {
-      console.log("A notification has been received");
-    });
-
-    OneSignal.handleNotificationOpened().subscribe(() => {
-      console.log("A notification has been opened");
-    });
-
-    OneSignal.endInit();
-
-    OneSignal.getIds().then(data => {
-      // this gives you back the new userId and pushToken associated with the device. Helpful.
-      console.log("Get ids", data);
-    });
 
   }
 
   initializeApp() {
+    alert('Before platform ready');
     this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      StatusBar.styleDefault();
-      Splashscreen.hide();
+
+      alert('After platform ready');
+
+      try {
+        // Okay, so the platform is ready and our plugins are available.
+        // Here you can do any higher level native things you might need.
+        StatusBar.styleDefault();
+        Splashscreen.hide();
+
+        let appId = 'e13e27b8-5f40-406f-9c88-d03ce9084708';
+        let senderId = '784104879538';
+
+        OneSignal.startInit(appId, senderId);
+
+        OneSignal.inFocusDisplaying(OneSignal.OSInFocusDisplayOption.InAppAlert);
+
+        OneSignal.handleNotificationReceived().subscribe(() => {
+          alert("A notification has been received");
+        });
+
+        OneSignal.handleNotificationOpened().subscribe(() => {
+          alert("A notification has been opened");
+        });
+
+        OneSignal.endInit();
+      } catch(ex) {
+        alert(ex);
+      }
     });
   }
 
