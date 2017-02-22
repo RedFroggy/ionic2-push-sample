@@ -37,7 +37,8 @@ sudo npm install -g cordova
 ```
 
 ## Sources
-The relevant code about push is in the file: src/app/app.component.ts
+The relevant code about push is in the file: src/app/app.component.ts.
+Replace both ONE_SIGNAL_APP_ID and SENDER_ID with your values.
 
 ## Build
 Add the android platform 
@@ -51,6 +52,5 @@ ionic platform add android
 ```
 ionic run android
 ```
-
-## The application should
+The application should run on your phone and you should be able to push notifications from the OneSignal platform.
 

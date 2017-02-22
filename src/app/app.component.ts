@@ -42,8 +42,8 @@ export class MyApp {
         StatusBar.styleDefault();
         Splashscreen.hide();
 
-        let appId = 'e13e27b8-5f40-406f-9c88-d03ce9084708';
-        let senderId = '784104879538';
+        let appId = 'ONE_SIGNAL_APP_ID';
+        let senderId = 'SENDER_ID';
 
         OneSignal.startInit(appId, senderId);
 
