@@ -34,10 +34,7 @@ export class MyApp {
   }
 
   initializeApp() {
-    alert('Before platform ready');
     this.platform.ready().then(() => {
-
-      alert('After platform ready');
 
       try {
         // Okay, so the platform is ready and our plugins are available.
@@ -64,6 +61,7 @@ export class MyApp {
       } catch(ex) {
         alert(ex);
       }
+
     });
   }
 

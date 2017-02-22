@@ -39,7 +39,8 @@
     "cordova-plugin-device",
     "cordova-plugin-splashscreen",
     "ionic-plugin-keyboard",
-    "onesignal-cordova-plugin"
+    "onesignal-cordova-plugin",
+    "phonegap-plugin-push"
   ],
   "cordovaPlatforms": [],
   "description": "MyIonic2Project: An Ionic project"
