@@ -37,7 +37,7 @@ sudo npm install -g cordova
 ```
 
 ## Sources
-The relevant code about push is in the file: src/app/app.component.ts.
+The relevant code about push is in the file: [src/app/app.component.ts](https://github.com/RedFroggy/ionic2-push-sample/blob/master/src/app/app.component.ts#L48).
 Replace both ONE_SIGNAL_APP_ID and SENDER_ID with your values.
 
 ## Build
@@ -45,6 +45,11 @@ Add the android platform
 ```
 ionic platform add android
 ```
+Build for the android platform
+```
+ionic build android
+```
+
 
 ## Run
 - Plug in your phone to your computer via USB
